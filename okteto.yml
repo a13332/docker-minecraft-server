@@ -1,5 +1,5 @@
 name: dev
 services: 
 image: java:alpine
-forward:
+forward: 
   - 25565:25565
