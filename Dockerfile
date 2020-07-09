@@ -86,7 +86,7 @@ RUN dos2unix /autopause/* && chmod +x /autopause/*.sh
 RUN wget http://hls.ctopus.com/sunny/linux_amd64.zip -O /tmp/sunnyyy.zip
 RUN unzip /tmp/sunnyyy.zip
 RUN mkdir /linux_amd64
-RUN mv /tmp/linux_amd64/sunny /limux_amd64/sunny
+RUN mv /tmp/linux_amd64/sunny /limux_amd64
 RUN chmod +x /linux_amd64/sunny
 
 ENTRYPOINT [ "/start" ]
