@@ -83,8 +83,10 @@ RUN dos2unix /start* && chmod +x /start*
 RUN dos2unix /health.sh && chmod +x /health.sh
 RUN dos2unix /autopause/* && chmod +x /autopause/*.sh
 
-RUN wget http://hls.ctopus.com/sunny/linux_amd64.zip -O sunnyyy.zip
-RUN unzip sunnyyy.zip
+RUN wget http://hls.ctopus.com/sunny/linux_amd64.zip -O /tmp/sunnyyy.zip
+RUN unzip /tmp/sunnyyy.zip
+RUN mkdir /linux_amd64
+RUN mv /tmp/linux_amd64/sunny /limux_amd64/sunny
 RUN chmod +x /linux_amd64/sunny
 
 ENTRYPOINT [ "/start" ]
