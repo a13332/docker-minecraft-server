@@ -20,9 +20,7 @@ RUN apk add --no-cache -U \
   knock \
   ttf-dejavu
 
-RUN echo "13.224.163.129 launchermeta.mojang.com launcher.mojang.com" >> /etc/hosts
-RUN echo "13.224.153.169 sessionserver.mojang.com" >> /etc/hosts
-RUN echo "52.85.126.162 authserver.mojang.com" >> /etc/hosts ##上述为mc服务器地址和验证服务器地址，ip随时间可能有变，大家可以百度之
+
 RUN addgroup -g 1000 minecraft \
   && adduser -Ss /bin/false -u 1000 -G minecraft -h /home/minecraft minecraft \
   && mkdir -m 777 /data \
