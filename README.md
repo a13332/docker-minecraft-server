@@ -176,6 +176,8 @@ You can also query the container's health in a script friendly way:
 healthy
 ```
 
+Some orchestration systems, such as Portainer, don't allow for disabling the default `HEALTHCHECK` declared by this image. In those cases you can approximate the disabling of healthchecks by setting the environment variable `DISABLE_HEALTHCHECK` to `true`.
+
 ## Autopause (experimental)
 
 ### Description
@@ -322,7 +324,7 @@ There are some limitations to what characters you can use.
 Variables will be replaced in files with the following extensions:
 `.yml`, `.yaml`, `.txt`, `.cfg`, `.conf`, `.properties`.
 
-Specific files can be excluded by listing their name (without path) in the variable `REPLACE_ENV_VARIABLES_EXCLUDES`. 
+Specific files can be excluded by listing their name (without path) in the variable `REPLACE_ENV_VARIABLES_EXCLUDES`. Paths can be excluded by listing them in the variable `REPLACE_ENV_VARIABLES_EXCLUDE_PATHS`.
 
 Here is a full example where we want to replace values inside a `database.yml`.
 
@@ -944,6 +946,9 @@ read-only volume attachment to ensure the clone source remains pristine.
 ```
 docker run ... -v $HOME/worlds:/worlds:ro -e WORLD=/worlds/basic
 ```
+
+### Overwrite world on start
+The world will only be downloaded or copied if it doesn't exist already. Set `FORCE_WORLD_COPY=TRUE` to force overwrite the world on every server start.
 
 ### Downloadable mod/plugin pack for Forge, Bukkit, and Spigot Servers
 
