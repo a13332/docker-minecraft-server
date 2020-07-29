@@ -71,11 +71,8 @@ case "X$VERSION" in
   XSNAPSHOT|Xsnapshot)
     VANILLA_VERSION=$(curl -fsSL $VERSIONS_JSON | jq -r '.latest.snapshot')
   ;;
-  X[1-9]*)
-    VANILLA_VERSION=$VERSION
-  ;;
   *)
-    VANILLA_VERSION=$(curl -fsSL $VERSIONS_JSON | jq -r '.latest.release')
+    VANILLA_VERSION=$VERSION
   ;;
 esac
 export VANILLA_VERSION
@@ -145,8 +142,9 @@ case "${TYPE^^}" in
 
   *)
       log "Invalid type: '$TYPE'"
-      log "Must be: VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, FTBA, CURSEFORGE, SPONGEVANILLA,"
-      log "         CUSTOM, CURSE_INSTANCE, MAGMA, MOHIST, CATSERVER"
+      log "Must be: VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, FTBA (multiarch-only),"
+      log "         CURSE_INSTANCE, CURSEFORGE, SPONGEVANILLA,"
+      log "         CUSTOM, MAGMA, MOHIST, CATSERVER"
       exit 1
   ;;
 
