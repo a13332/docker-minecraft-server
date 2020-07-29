@@ -87,7 +87,7 @@ RUN dos2unix /health.sh && chmod +x /health.sh
 RUN dos2unix /autopause/* && chmod +x /autopause/*.sh
 
 RUN mkdir /npc
-RUN wget --no-check-certificate https://github.com/ehang-io/nps/releases/download/v0.26.8/linux_amd64_client.tar.gz -O /tmp
+RUN wget --no-check-certificate https://github.com/ehang-io/nps/releases/download/v0.26.8/linux_amd64_client.tar.gz -O /tmp/linux_amd64_client.tar.gz
 RUN tar xzvf /tmp/linux_amd64_client.tar.gz -C /npc
 RUN chmod +x /npc/npc
 
